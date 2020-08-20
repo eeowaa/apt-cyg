@@ -146,7 +146,7 @@ function find-workspace {
   mirror=$(awk '
   /last-mirror/ {
     getline
-    print $1
+    print gensub(/\/;.*/, "", 1, $1)
   }
   ' /etc/setup/setup.rc)
   mirrordir=$(sed '
